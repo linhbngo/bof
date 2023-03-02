@@ -15,8 +15,17 @@ small() {
   sed -i "s/BUF_SIZE/10/g" stack.c
 }
 
+generate() {
+  touch badfile
+  gcc -m32 -o stack -z execstack -fno-stack-protector stack.c
+  gcc -m32 -g -o gdb_stack -z execstack -fno-stack-protector stack.c
+}
+
 clean() {
   rm -Rf stack.c
+  rm -Rf stack
+  rm -Rf gdb_stack
+  rm -Rf badfile
 }
 
 case "$1" in
