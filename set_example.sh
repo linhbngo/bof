@@ -31,9 +31,11 @@ clean() {
 case "$1" in
   'small')
     small
+    generate
     ;;
   'random')
     random
+    generate
     ;;
   'clean')
     clean
