@@ -9,11 +9,11 @@ int bof(char *str) {
 }
 
 int main(int argc, char **argv) {
-    char str[BADFILE_SIZE];
+    char str[517];
     FILE *badfile;
 
     badfile = fopen("badfile", "r");
-    fread(str, sizeof(char), BADFILE_SIZE, badfile);
+    fread(str, sizeof(char), 517, badfile);
     bof(str);
     printf("Returned Properly\n");
     return 0;
